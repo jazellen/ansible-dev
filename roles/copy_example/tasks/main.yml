@@ -1,0 +1,8 @@
+
+ ---
+
+ - name: Copy The example.txt file to the /tmp dir
+
+ - name: Use shell to do an ls on the /tmp dir
+
+ - name: print out results of the previous ls command

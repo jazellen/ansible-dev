@@ -1,0 +1,37 @@
+#Class Challenge
+
+---
+- name: The Class Challenge
+  host: planetexpress
+
+  vars_prompt:
+  - name: myprogram
+    prompt: "What program do you want to install on the host?"      
+    #install: True
+
+    #pre_tasks:
+    #- name: frist task
+    #debug:
+    # msg: This is the FRIST TASK TO RUN 
+
+  roles:
+  - name: copy_example
+    #when: install | bool
+
+    #- name: package_uninstalls
+    #when: not install | bool
+
+  tasks:
+  - name: Use apt to install program 
+    apt: 
+     name: "{{ myprogram }}"
+     state: present
+     become: True
+     when: 
+     #msg: This is actually a TASK
+  - name: Use yum to install program 
+
+  post_tasks:
+  - name: last task
+    debug:
+      msg: This is the last TASK 
